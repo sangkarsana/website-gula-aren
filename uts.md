@@ -1,6 +1,6 @@
-# Ujian Praktik Pemrograman Web - Website E-Commerce
+# Ujian Tengah Semester Praktikkum Pemrograman Web - Website E-Commerce
 
-## Deskripsi Tugas
+## Deskripsi Soal
 Buatlah sebuah website e-commerce sederhana untuk menjual produk yang telah ditentukan. Website harus responsif dan memiliki tampilan yang menarik sesuai dengan tema produk.
 
 ## Pembagian Produk
