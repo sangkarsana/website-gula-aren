@@ -235,9 +235,9 @@ flowchart TD
 ```
 
 #### B. Struktur File
-
+lanjutan project gula aren atau project UTS. Folder admin, berada di dalam folder project uts/gula aren
 ```
-project/
+admin/
 ├── config/
 │   └── database.php
 ├── auth/
