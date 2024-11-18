@@ -142,26 +142,23 @@ session_start();
 require_once 'config.php';
 
 if(isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $username = $_POST['username'];
     $password = $_POST['password'];
     
-    $query = "SELECT * FROM users WHERE username = '$username'";
+    // Gunakan fungsi PASSWORD() untuk mencocokkan dengan hash di database
+    $query = "SELECT * FROM users WHERE username='$username' AND password=PASSWORD('$password')";
     $result = mysqli_query($conn, $query);
     
     if(mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        if(password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['name'] = $row['name'];
+        $_SESSION['user_id'] = $row['id'];
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
             
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            $error = "Password salah!";
-        }
+        header("Location: dashboard.php");
+        exit();
     } else {
-        $error = "Username tidak ditemukan!";
+        $error = "Username atau Password salah!";
     }
 }
 ?>
@@ -173,9 +170,11 @@ if(isset($_POST['login'])) {
 </head>
 <body>
     <h2>Login Form</h2>
-    <?php if(isset($error)) echo "<p style='color: red'>$error</p>"; ?>
+    <?php if(isset($error)) { ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php } ?>
     
-    <form method="POST">
+    <form action="" method="POST">
         <p>
             Username: <input type="text" name="username" required>
         </p>
