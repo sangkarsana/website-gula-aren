@@ -1,4 +1,5 @@
-Rancangan tabel Produk dan Kategori sederhana
+Pada kesempatan kali ini, kita akan mempelajari bagaimana membuat struktur database untuk sistem manajemen produk yang terdiri dari dua tabel utama yaitu tabel kategori dan tabel produk. Kedua tabel ini memiliki hubungan relasional one-to-many, di mana satu kategori dapat memiliki banyak produk, namun satu produk hanya dapat termasuk dalam satu kategori. Struktur database ini umum digunakan dalam berbagai aplikasi e-commerce atau sistem inventori untuk mengorganisir produk berdasarkan kategorinya. Tabel kategori akan menyimpan informasi dasar tentang jenis-jenis produk, sementara tabel produk akan menyimpan detail lengkap dari setiap item termasuk nama, deskripsi, harga, stok, dan URL gambar produk.
+
 ```mermaid
 erDiagram
     KATEGORI ||--o{ PRODUK : memiliki
@@ -40,7 +41,7 @@ CREATE TABLE produk (
 );
 ```
 
-Struktur tabel :
+Struktur lengkap:
 
 1. Tabel KATEGORI:
    - id_kategori: Primary key, auto increment
@@ -54,6 +55,4 @@ Struktur tabel :
    - deskripsi: Deskripsi produk
    - harga: Harga produk
    - stok: Jumlah stok produk
-   - url_gambar: URL gambar produk
-
-Relasi one-to-many: satu kategori dapat memiliki banyak produk, dan satu produk hanya dapat memiliki satu kategori.
+   - url_gambar: URL gambar produk (opsional)
